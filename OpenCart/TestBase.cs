@@ -13,9 +13,13 @@ namespace OpenCart
 {
     public class TestBase
     {
-        internal IWebDriver driver;
-        internal WebDriverWait wait;
-        internal HomePage homePage;
+        public IWebDriver driver;
+        public WebDriverWait wait;
+        public HomePage homePage;
+        public LoginPage loginPage;
+        public AccountPage accountPage;
+        public RegisterPage registerPage;
+        public ForgottenPasswordPage forgottenPasswordPage;
 
         public void Setup(string browserName)
         {
@@ -27,17 +31,20 @@ namespace OpenCart
                 case "firefox":
                     driver = new FirefoxDriver();
                     break;
-                case "safari":
-                    driver = new SafariDriver();
-                    break;
-                default:
+                case "chrome":
                     driver = new ChromeDriver();
                     break;
             }
+            
+            driver.Manage().Window.Maximize();
 
             wait = new WebDriverWait(driver, new TimeSpan(0, 0, 5));
             homePage = new HomePage(driver);
-
+            loginPage = new LoginPage(driver);
+            accountPage = new AccountPage(driver);
+            accountPage = new AccountPage(driver);
+            registerPage = new RegisterPage(driver);
+            forgottenPasswordPage = new ForgottenPasswordPage(driver);
         }
 
         public static IEnumerable<string> BrowserToRunWith()
