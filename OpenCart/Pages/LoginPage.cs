@@ -18,11 +18,11 @@ namespace OpenCart.Pages
         public string LoginPageURL { get { return loginPageURL; } }
         public string[] LoginPageBreadCrumbLinksTexts { get { return loginPageBreadCrumbLinksTexts; } }
 
-        IWebElement EmailInput => driver.FindElement(By.XPath("//input[@name='email']"));
-        IWebElement PasswordInput => driver.FindElement(By.Id("input-password"));
-        IWebElement LoginBtn => driver.FindElement(By.XPath("//input[@value='Login']"));
-        IWebElement NewCustomerBtn => driver.FindElement(By.XPath("//a[text()='Continue']"));
-        IWebElement ForgottonPasswordLink => driver.FindElement(By.XPath("//form//a[text()='Forgotten Password']"));
+        public IWebElement EmailInput => driver.FindElement(By.XPath("//input[@name='email']"));
+        public IWebElement PasswordInput => driver.FindElement(By.Id("input-password"));
+        public IWebElement LoginBtn => driver.FindElement(By.XPath("//input[@value='Login']"));
+        public IWebElement NewCustomerBtn => driver.FindElement(By.XPath("//a[text()='Continue']"));
+        public IWebElement ForgottonPasswordLink => driver.FindElement(By.XPath("//form//a[text()='Forgotten Password']"));
 
         public LoginPage(IWebDriver driver)
         {

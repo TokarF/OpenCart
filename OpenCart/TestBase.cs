@@ -25,9 +25,7 @@ namespace OpenCart
         {
             switch (browserName)
             {
-                case "edge":
-                    driver = new EdgeDriver();
-                    break;
+
                 case "firefox":
                     driver = new FirefoxDriver();
                     break;

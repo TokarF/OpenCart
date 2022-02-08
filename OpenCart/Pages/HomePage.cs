@@ -13,8 +13,9 @@ namespace OpenCart.Pages
         private string homePageURL = "https://demo.opencart.com/";
 
         public string HomePageURL { get { return homePageURL; } }
-        IWebElement myAccountLink => driver.FindElement(By.XPath("//a[@title='My Account']"));
-        IWebElement linkLogin => driver.FindElement(By.LinkText("Login"));
+        public IWebElement MyAccountLink => driver.FindElement(By.XPath("//a[@title='My Account']"));
+        public IWebElement LoginLink => driver.FindElement(By.LinkText("Login"));
+        public IWebElement RegisterLink => driver.FindElement(By.LinkText("Register"));
 
 
         public HomePage(IWebDriver driver)
@@ -25,8 +26,15 @@ namespace OpenCart.Pages
         public void NavigateToLoginPage()
         {
             driver.Navigate().GoToUrl(homePageURL);
-            myAccountLink.Click();
-            linkLogin.Click();
+            MyAccountLink.Click();
+            LoginLink.Click();
+        }
+
+        public void NavigateToRegisterPage()
+        {
+            driver.Navigate().GoToUrl(homePageURL);
+            MyAccountLink.Click();
+            RegisterLink.Click();
         }
 
         public List<string> GetBreadCrumbLinksTexts()

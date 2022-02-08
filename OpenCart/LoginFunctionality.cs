@@ -15,8 +15,7 @@ namespace OpenCart.Pages
     {
 
         [Test(Description = "Check login functionality with valid login data")]
-        [TestCaseSource(typeof(TestBase), "BrowserToRunWith")]
-        public void LF_TC_001(string browserName)
+        public void LF_TC_001([ValueSource(typeof(TestBase), "BrowserToRunWith")] string browserName)
         {
             Setup(browserName);
             homePage.NavigateToLoginPage();
@@ -27,8 +26,7 @@ namespace OpenCart.Pages
         }
 
         [Test(Description = "Validate login functionality with invalid email and password")]
-        [TestCaseSource(typeof(TestBase), "BrowserToRunWith")]
-        public void LF_TC_002(string browserName)
+        public void LF_TC_002([ValueSource(typeof(TestBase), "BrowserToRunWith")] string browserName)
         {
             Setup(browserName);
             homePage.NavigateToLoginPage();
@@ -39,8 +37,7 @@ namespace OpenCart.Pages
         }
 
         [Test(Description = "Validate login functionality with valid email and invalid password")]
-        [TestCaseSource(typeof(TestBase), "BrowserToRunWith")]
-        public void LF_TC_003(string browserName)
+        public void LF_TC_003([ValueSource(typeof(TestBase), "BrowserToRunWith")] string browserName)
         {
             Setup(browserName);
             homePage.NavigateToLoginPage();
@@ -51,8 +48,7 @@ namespace OpenCart.Pages
         }
 
         [Test(Description = "Validate login functionality with invalid email and valid password")]
-        [TestCaseSource(typeof(TestBase), "BrowserToRunWith")]
-        public void LF_TC_004(string browserName)
+        public void LF_TC_004([ValueSource(typeof(TestBase), "BrowserToRunWith")] string browserName)
         {
             Setup(browserName);
             homePage.NavigateToLoginPage();
@@ -62,10 +58,8 @@ namespace OpenCart.Pages
             Assert.That(driver.FindElement(By.XPath("//*[text()=' Warning: No match for E-Mail Address and/or Password.']")).Displayed, Is.True);
         }
 
-
         [Test(Description = "Check New Customer link works properly on Login page")]
-        [TestCaseSource(typeof(TestBase), "BrowserToRunWith")]
-        public void LF_TC_005(string browserName)
+        public void LF_TC_005([ValueSource(typeof(TestBase), "BrowserToRunWith")] string browserName)
         {
             Setup(browserName);
             homePage.NavigateToLoginPage();
@@ -74,11 +68,8 @@ namespace OpenCart.Pages
             Assert.That(driver.Url, Is.EqualTo(registerPage.RegisterPageURL));
         }
 
-
-
         [Test(Description = "Check Forgotton password link works properly on Login page")]
-        [TestCaseSource(typeof(TestBase), "BrowserToRunWith")]
-        public void LF_TC_006(string browserName)
+        public void LF_TC_006([ValueSource(typeof(TestBase), "BrowserToRunWith")] string browserName)
         {
             Setup(browserName);
             homePage.NavigateToLoginPage();
@@ -89,8 +80,7 @@ namespace OpenCart.Pages
 
 
         [Test(Description = "ValidateValidate page title, breadcrumb links and url are proper on the Login page")]
-        [TestCaseSource(typeof(TestBase), "BrowserToRunWith")]
-        public void LF_TC_007(string browserName)
+        public void LF_TC_007([ValueSource(typeof(TestBase), "BrowserToRunWith")] string browserName)
         {
             Setup(browserName);
             homePage.NavigateToLoginPage();
